@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chess Engine – UGRF Presentation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#050505;
+  color:#eee;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:70px 10%;
+  opacity:0;
+  transform:translateX(40px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+  pointer-events:none;
+}
+
+.slide.active{
+  opacity:1;
+  transform:translateX(0);
+  pointer-events:auto;
+}
+
+.content{
+  width:60%;
+  background:linear-gradient(145deg,#121212,#000);
+  padding:45px;
+  border-radius:25px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.9);
+}
+
+h1,h2{
+  color:#d4af37;
+}
+
+p,li{
+  font-size:17px;
+  line-height:1.75;
+  color:#ddd;
+}
+
+.king{
+  width:30%;
+  display:flex;
+  justify-content:center;
+  perspective:1000px;
+}
+
+.king img{
+  width:280px;
+  transition:transform 0.8s ease;
+  filter:drop-shadow(0 35px 55px rgba(0,0,0,0.9));
+}
+
+.controls{
+  position:fixed;
+  bottom:25px;
+  right:40px;
+}
+
+button{
+  background:#d4af37;
+  border:none;
+  padding:12px 20px;
+  margin-left:10px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+  <div class="content">
+    <h1>Design and Development of a Chess Engine</h1>
+    <h2>Using Data Structures</h2>
+    <p><b>ECE251 – Data Structures & Algorithms</b></p>
+    <p>
+      Ahmed Essam Selouma – 241001867<br>
+      <b>Faris Emad – 241002282</b><br>
+      Bahaa Eldin Mohammed – 241000433<br>
+      Mazen Mohammed Shabaan – 241001767
+    </p>
+    <p><b>December 25, 2025</b></p>
+  </div>
+  <div class="king">
+    <img src="https://img.freepik.com/premium-photo/white-chess-king-standing-isolated-black-background_38678-7071.jpg">
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="content">
+    <h2>Problem Summary</h2>
+    <p>
+      Building a chess engine requires accurate rule enforcement, efficient state
+      management, and reliable communication between the game logic and user interaction.
+      The complexity of chess arises from diverse piece movements, special rules such as
+      castling and en passant, and the continuous evaluation of game states including
+      check, checkmate, and draw conditions.
+    </p>
+    <p>
+      Additionally, integrating a low-level engine with a modern graphical interface
+      introduces further design challenges related to synchronization, responsiveness,
+      and data exchange between components.
+    </p>
+  </div>
+  <div class="king"><img src="https://img.freepik.com/premium-photo/white-chess-king-standing-isolated-black-background_38678-7071.jpg"></div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="content">
+    <h2>Project Motivation</h2>
+    <p>
+      This project addresses these challenges by developing a chess engine based on
+      fundamental data structures and linking it to a graphical user interface.
+      The goal is not to build an advanced AI system, but rather to demonstrate how
+      core data structure concepts can be applied to model a complex, rule-driven system.
+    </p>
+    <p>
+      The project serves as a practical application of the concepts taught in the
+      ECE251 Data Structures course, bridging the gap between theory and real-world
+      software design.
+    </p>
+  </div>
+  <div class="king"><img src="https://img.freepik.com/premium-photo/white-chess-king-standing-isolated-black-background_38678-7071.jpg"></div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+  <div class="content">
+    <h2>Methodology</h2>
+    <p>
+      The chess engine is implemented in C++ using a modular architecture that separates
+      core game logic from presentation. The chessboard is represented as an 8×8 array
+      of structured objects, where each object stores the piece type, color, and movement
+      state.
+    </p>
+    <p>
+      Legal moves are generated dynamically and validated according to chess rules before
+      execution. Special rules such as castling, en passant, and pawn promotion are
+      explicitly handled within the engine logic.
+    </p>
+  </div>
+  <div class="king"><img src="https://img.freepik.com/premium-photo/white-chess-king-standing-isolated-black-background_38678-7071.jpg"></div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+  <div class="content">
+    <h2>Data Structures & Integration</h2>
+    <p>
+      A doubly linked list is used to maintain move history, while stack-based structures
+      support undo and redo operations through game state snapshots. A hash-based mapping
+      tracks board positions to enable repetition detection.
+    </p>
+    <p>
+      The engine is connected to a graphical user interface built using Python and
+      Streamlit. Communication is achieved through a subprocess-based command protocol,
+      allowing the C++ engine to function as a backend logic module while Streamlit
+      manages visualization and user interaction.
+    </p>
+  </div>
+  <div class="king"><img src="https://img.freepik.com/premium-photo/white-chess-king-standing-isolated-black-background_38678-7071.jpg"></div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+  <div class="content">
+    <h2>Achievements & Gained Skills</h2>
+    <p>
+      This project provided hands-on experience in applying data structures within a
+      complete, interactive software system. The team strengthened its understanding of
+      arrays, linked lists, stacks, and hash maps through their coordinated use.
+    </p>
+    <p>
+      Additional skills were gained in object-oriented design, rule-based algorithm
+      implementation, state management, and cross-language integration between C++
+      and Python.
+    </p>
+  </div>
+  <div class="king"><img src="https://img.freepik.com/premium-photo/white-chess-king-standing-isolated-black-background_38678-7071.jpg"></div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+  <div class="content">
+    <h2>Discussion & Conclusion</h2>
+    <p>
+      The project demonstrates that complex, rule-based systems such as chess can be
+      effectively modeled using fundamental data structures. Separating game logic from
+      the graphical interface improves clarity, maintainability, and extensibility.
+    </p>
+    <p>
+      Overall, the project illustrates how theoretical concepts can be transformed into
+      a functional, interactive application suitable for real-world software engineering.
+    </p>
+  </div>
+  <div class="king"><img src="https://img.freepik.com/premium-photo/white-chess-king-standing-isolated-black-background_38678-7071.jpg"></div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+  <div class="content">
+    <h2>Future Work</h2>
+    <p>
+      Future development includes enhancing the graphical interface and expanding
+      platform support. One planned improvement is replacing or complementing the
+      Streamlit interface with a web-based frontend using React.
+    </p>
+    <p>
+      Additional future work includes integrating AI techniques such as Minimax,
+      optimizing performance, and adding game analysis and replay features.
+    </p>
+  </div>
+  <div class="king"><img src="https://img.freepik.com/premium-photo/white-chess-king-standing-isolated-black-background_38678-7071.jpg"></div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <button onclick="prev()">◀</button>
+  <button onclick="next()">▶</button>
+</div>
+
+<script>
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+let flip = false;
+
+function showSlide(i){
+  slides[index].classList.remove('active');
+  index = (i + slides.length) % slides.length;
+  slides[index].classList.add('active');
+
+  flip = !flip;
+  document.querySelectorAll('.king img').forEach(img=>{
+    img.style.transform = flip ? "rotateY(35deg)" : "rotateY(-35deg)";
+  });
+}
+
+function next(){ showSlide(index + 1); }
+function prev(){ showSlide(index - 1); }
+
+document.addEventListener('keydown', e=>{
+  if(e.key === "ArrowRight") next();
+  if(e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>
